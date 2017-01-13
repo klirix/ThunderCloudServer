@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="jquery-3.1.1.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="dropzone.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <title>Hello</title>
+    </head>
+    <body class="drop" on-drop="uploadFile">
+        <div>
+            <h2>ThunderCloud v0.0.1</h2>
+        </div>
+        <div id="app">
+            <a  class="file" v-for="file in files" :href="'/file/'+file.id" target="_blank" v-on:contextmenu="deleteFile($event,file.id)">
+                <img :src="'/pics/'+file.original.substr(file.original.lastIndexOf('.')+1)+'-file-format.svg'" alt="">
+                <h4>{{file.original}}</h4>
+            </a>
+        </div>
+
+    </body>
+    <script src="app.js"></script>    
+</html>

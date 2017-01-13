@@ -1,0 +1,21 @@
+#app{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.file{
+    width: 300px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.file img{
+    display: block;
+    width: 80%;
+}
+.dz-preview{
+    display: none;
+}

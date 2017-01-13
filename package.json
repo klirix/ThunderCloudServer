@@ -1,0 +1,42 @@
+{
+  "name": "thunder-cloud-server",
+  "version": "0.0.1",
+  "description": "Yet Another cloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klirix/ThunderCloudServer.git"
+  },
+  "keywords": [
+    "local",
+    "cloud"
+  ],
+  "author": "Felix Ligov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/klirix/ThunderCloudServer/issues"
+  },
+  "homepage": "https://github.com/klirix/ThunderCloudServer#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "del": "^2.2.2",
+    "express": "^4.14.0",
+    "multer": "^1.2.1",
+    "shelljs": "^0.7.6",
+    "socket.io": "^1.7.2",
+    "sqlite": "^2.2.4"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.0.37",
+    "@types/del": "^2.2.31",
+    "@types/express": "^4.0.34",
+    "@types/multer": "0.0.32",
+    "@types/socket.io": "^1.4.27",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.4",
+    "typescript": "^2.1.5"
+  }
+}
