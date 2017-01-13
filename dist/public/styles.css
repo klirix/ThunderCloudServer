@@ -1,21 +1,78 @@
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
 #app{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .file{
-    width: 300px;
+    margin: 25px;
+    background: #dedede;
+    width: 250px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
+    text-decoration: none;
+    color: #2e2e2e;
 }
 
 .file img{
     display: block;
-    width: 80%;
+    width: 90%;
+}
+
+.file h4{
+    margin:0;
+    
 }
 .dz-preview{
     display: none;
+}
+.header-container{
+    padding: 15px;
+    padding-left: 25px;
+    background-color: #303F9F;
+}
+.header{
+    margin: 0;
+    color: whitesmoke;
+    line-height: 30px;
+}
+
+.add-file{
+    color: whitesmoke;    
+    z-index:2;
+    display: none;
+    font-size: 3em;
+    line-height: 29px;
+    float: right;
+}
+
+@media only screen and (max-width: 500px) {
+    .file{
+        width: 100%;
+    }
+    .add-file{
+        display: block;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+.snackbar, .snackbar-opened{
+    height: 40px;
+    line-height: 100%;
+    color: whitesmoke;
+    background: #1e1e1e;
 }
