@@ -19,13 +19,11 @@ exports.MainRouter = express_1.Router()
 })
     .get('/files', (req, res) => {
     File_model_1.default.all().then(data => {
-        // console.log(data);
         res.json(data);
     });
 })
     .get('/file/:id', (req, res) => {
     File_model_1.default.get(req.params.id).then(file => {
-        console.log(file);
         res.download('./files/' + file.filename, file.original);
     });
 })

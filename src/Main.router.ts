@@ -23,15 +23,12 @@ export let MainRouter = Router()
 
 .get('/files',(req,res)=>{
     files.all().then(data=>{
-        // console.log(data);
         res.json(data)        
     })
 })
 
 .get('/file/:id',(req,res)=>{
     files.get(req.params.id).then(file=>{
-        console.log(file);
-        
         res.download('./files/'+file.filename,file.original)
     })
 })
