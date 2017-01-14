@@ -14,7 +14,7 @@
     <body class="drop" on-drop="uploadFile">
         <div class="header-container">
             <span class="add-file">+</span>            
-            <h2 class="header">ThunderCloud v0.0.1</h2>
+            <h2 class="header"><img src="/pics/logo.svg" style="height: 20px;margin-left:10px;margin-right:10px;" alt="">ThunderCloud <small>v0.0.1</small></h2>
         </div>
         <div id="app">
             <a  class="file" v-for="file in files" :href="'/file/'+file.id" target="_blank" v-on:contextmenu="deleteFile($event,file.id,file.original)">

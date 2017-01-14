@@ -10,7 +10,7 @@ body{
 .file{
     margin: 25px;
     background: #dedede;
-    width: 250px;
+    width: 150px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ body{
 
 .file img{
     display: block;
-    width: 90%;
+    width: 95%;
 }
 
 .file h4{
@@ -55,7 +55,7 @@ body{
 
 @media only screen and (max-width: 500px) {
     .file{
-        width: 100%;
+        width: 30%;
     }
     .add-file{
         display: block;
