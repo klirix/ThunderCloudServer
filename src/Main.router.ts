@@ -10,10 +10,12 @@ let upload = multer({
 export let MainRouter = Router()
 
 .post('/files',upload.any(),(req,res)=>{
-    console.log(req.file);
     let clientFiles:Express.Multer.File[] = <any> req.files
     clientFiles.forEach(value=>{
         files.add(value.filename,value.originalname).then(file=>{
+            if (process.argv.indexOf("--log")>-1){
+                console.log("Someone from "+req.connection.remoteAddress+" uploaded: "+value.originalname);
+            }
             io.emit('newfile',file)
             res.json(file)
         })
@@ -28,12 +30,18 @@ export let MainRouter = Router()
 
 .get('/file/:id',(req,res)=>{
     files.get(req.params.id).then(file=>{ 
+        if (process.argv.indexOf("--log")>-1){
+            console.log("Someone from "+req.connection.remoteAddress+" downloaded: "+value.originalname);        
+        }
         res.download('./files/'+file.filename,file.original)
     })
 })
 
 .delete('/file/:id',(req,res)=>{
     files.remove(req.params.id).then(data=>{
+        if (process.argv.indexOf("--log")>-1){
+            console.log("Someone from "+req.connection.remoteAddress+" deleted file by id: "+req.params.id);                
+        }
         res.json(true);    
         io.emit('deleted',req.params.id)        
     }).catch(err=>{
