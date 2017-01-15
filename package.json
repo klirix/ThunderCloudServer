@@ -1,10 +1,10 @@
 {
   "name": "thundercloud",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Yet Another cloud",
   "main": "index.js",
   "bin": {
-    "thundercloud":"index.js"
+    "thundercloud": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
