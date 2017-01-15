@@ -1,5 +1,5 @@
 {
-  "name": "thunder-cloud-server",
+  "name": "thundercloud",
   "version": "0.0.1",
   "description": "Yet Another cloud",
   "main": "index.js",
