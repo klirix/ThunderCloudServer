@@ -18,7 +18,6 @@ export let MainRouter = Router()
             res.json(file)
         })
     })
-    
 })
 
 .get('/files',(req,res)=>{
@@ -28,14 +27,19 @@ export let MainRouter = Router()
 })
 
 .get('/file/:id',(req,res)=>{
-    files.get(req.params.id).then(file=>{
+    files.get(req.params.id).then(file=>{ 
         res.download('./files/'+file.filename,file.original)
     })
 })
 
 .delete('/file/:id',(req,res)=>{
-    io.emit('deleted',req.params.id)
-    res.json(files.remove(req.params.id));
+    files.remove(req.params.id).then(data=>{
+        res.json(true);    
+        io.emit('deleted',req.params.id)        
+    }).catch(err=>{
+        res.json(false);
+        io.emit('delete failed');
+    })
 })
 
 .use(stat(__dirname + '/public'))
