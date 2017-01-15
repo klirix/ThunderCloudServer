@@ -5,11 +5,11 @@ Creates files folder and a mapping Sqlite4 database. As easy as that.
 
 ## Installation
 
-```npm install -g thundercloud`
+`npm install -g thundercloud`
 
 ## Starting up
 
-```thundercloud`
+`thundercloud`
 As easy as that
 
 It will create folder `files` and `database.sqlite` database.
