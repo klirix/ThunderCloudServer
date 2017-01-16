@@ -14,5 +14,5 @@ As easy as that
 
 It will create folder `files` and `database.sqlite` database.
 
-## Issuses
+## Issues
 Everything elese is in the issues. (I suck at github)
