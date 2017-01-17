@@ -28,12 +28,25 @@ export let MainRouter = Router()
     })
 })
 
+.get('/file/:id/download',(req,res)=>{
+    files.get(req.params.id).then(file=>{ 
+        if (process.argv.indexOf("--log")>-1){
+            console.log("Someone from "+req.connection.remoteAddress+" downloaded: "+file.original);        
+        }
+        res.download('./files/'+file.filename,file.original)
+    })
+})
+
 .get('/file/:id',(req,res)=>{
     files.get(req.params.id).then(file=>{ 
         if (process.argv.indexOf("--log")>-1){
-            console.log("Someone from "+req.connection.remoteAddress+" downloaded: "+value.originalname);        
+            console.log("Someone from "+req.connection.remoteAddress+" downloaded: "+file.original);        
         }
-        res.download('./files/'+file.filename,file.original)
+        
+        res.download('./files/'+file.filename)
+        res.set({
+            "Content-Disposition": 'filename="'+file.original+'"'
+        });
     })
 })
 

@@ -6,9 +6,10 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 15px;
 }
 .file{
-    margin: 25px;
+    margin: 15px;
     background: #dedede;
     width: 150px;
     text-align: center;
@@ -24,6 +25,7 @@ body{
 .file img{
     display: block;
     width: 95%;
+
 }
 
 .file h4{
@@ -75,4 +77,38 @@ body{
     line-height: 100%;
     color: whitesmoke;
     background: #1e1e1e;
+}
+
+.backdrop{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.menu-open{
+    pointer-events: all;
+}
+
+.menu{
+    z-index: 11;
+    box-shadow: 0 0 8px black;
+    width:auto;
+    cursor: pointer;
+    padding: 1em 0 1em 0;
+    position: fixed;
+    background: #fefefe;
+}
+.menu-item{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 0.7em 3em 0.7em 1em;
+}
+.dz-max-files-reached {
+          pointer-events: none;
+          cursor: default;
 }

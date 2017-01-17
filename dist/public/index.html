@@ -11,18 +11,37 @@
         <link rel="stylesheet" href="jquery.snackbar.css">
         <title>Hello</title>
     </head>
-    <body class="drop" on-drop="uploadFile">
+    <body>
         <div class="header-container">
             <span class="add-file">+</span>            
             <h2 class="header"><img src="/pics/logo.svg" style="height: 20px;margin-left:10px;margin-right:10px;" alt="">ThunderCloud <small>v0.0.1</small></h2>
         </div>
-        <div id="app">
-            <a  class="file" v-for="file in files" :href="'/file/'+file.id" target="_blank" v-on:contextmenu="deleteFile($event,file.id,file.original)">
-                <img :src="'/pics/'+file.original.substr(file.original.lastIndexOf('.')+1)+'-file-format.svg'" alt="">
-                <h4>{{file.original}}</h4>
-            </a>
+        <div class="drop-window">
+            <div id="app">
+                <div class="file" 
+                    v-for="file in files" 
+                    :href="'/file/'+file.id" 
+                    target="_blank" 
+                    v-on:contextmenu="openContextMenu($event,file)">
+                    <img :src="getThumbnail(file)" alt="">
+                    <h4>{{file.original}}</h4>
+                </div>
+                <div class="backdrop" v-on:click="closeContextMenu($event)">
+                <div id="menu" class="menu" style="display: none;">
+                    <a class="menu-item" v-if="fileContext" :href="'/file/'+fileContext.id" target="_blank" >
+                        Open
+                    </a>
+                    <div class="menu-item" v-if="fileContext" v-on:click="deleteFile(fileContext)">
+                        Delete
+                    </div>
+                    <div class="menu-item" v-if="fileContext" :href="'/file/'+fileContext.id+'/download'" target="_blank" >
+                        Download
+                    </div>
+                </div>
+            </div>
+            </div>
+            
         </div>
-
     </body>
     <script src="app.js"></script>    
 </html>
