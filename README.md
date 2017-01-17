@@ -1,7 +1,7 @@
 # ThunderCloudServer
 Just Yet Another Local Cloud Server
 
-Creates files folder and a mapping Sqlite4 database. As easy as that.
+Creates files folder and a mapping Sqlite3 database. As easy as that.
 
 ## Installation
 
