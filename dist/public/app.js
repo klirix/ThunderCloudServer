@@ -10,8 +10,7 @@ var app = new Vue({
     openContextMenu: function(e,file){
         this.contextMenuOpen = true;
         this.fileContext = file;
-        e.preventDefault();
-        console.log(e);
+        console.log(e); 
         $("#menu").css({top:e.clientY,left:e.clientX})
         $("#menu").show()
         $(".backdrop").addClass('menu-open');
@@ -23,6 +22,10 @@ var app = new Vue({
             $(".backdrop").removeClass('menu-open');
         }
         console.log(e);
+    },
+    downloadFile:function(e,file){
+        console.log(e);
+        window.open("/file/"+file.id+"/download", "_blank")
     },
     deleteFile: function(file){
         if(this.contextMenuOpen){

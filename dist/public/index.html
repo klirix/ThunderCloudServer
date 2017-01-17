@@ -23,7 +23,8 @@
                             v-for="file in files" 
                             :href="'/file/'+file.id" 
                             target="_blank" 
-                            v-on:contextmenu="openContextMenu($event,file)">
+                            v-on:contextmenu.prevent.stop="openContextMenu($event,  file)"
+                            v-on:dblclick="downloadFile($event,file)">
                             <img :src="getThumbnail(file)" alt="">
                             <h4>{{file.original}}</h4>
                         </div>
