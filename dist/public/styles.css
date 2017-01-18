@@ -11,24 +11,35 @@ body{
     box-shadow: 0 0 8px black;
     width: 350px;
 }
+.thumb{
+    height: 200px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 15px;
+}
 .files{
     display: flex;
     flex: 1;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 15px;
+    flex-basis: content;
+    justify-content: flex-start;
+    align-content: flex-start;
+
 }
 .file{
-    margin: 15px;
-    background: #dedede;
-    width: 150px;
+    /*background: #dedede;*/
+    width: 300px;
     height: 200px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 20px;
+    margin: 20px;
     text-decoration: none;
     color: #2e2e2e;
 }

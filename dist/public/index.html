@@ -18,14 +18,18 @@
                 <h2 class="header"><img src="/pics/logo.svg" style="height: 20px;margin-left:10px;margin-right:10px;" alt="">ThunderCloud <small>v0.0.1</small></h2>
             </div>
             <div class="main-window">
-                <div class="files">
+                <div class="files"
+                     v-on:dragover="dragstart($event)"
+                     v-on:dragdrop="drop($event)"
+                     v-on:drop="drop($event)"
+                     v-on:dragleave="dragstop($event)">
                         <div class="file" 
-                            v-for="file in files" 
-                            :href="'/file/'+file.id" 
-                            target="_blank" 
-                            v-on:contextmenu.prevent.stop="openContextMenu($event,  file)"
-                            v-on:dblclick="downloadFile($event,file)">
-                            <img :src="getThumbnail(file)" alt="">
+                             v-for="file in files" 
+                             :href="'/file/'+file.id" 
+                             target="_blank" 
+                             v-on:contextmenu.prevent.stop="openContextMenu($event,  file)"
+                             v-on:dblclick="downloadFile($event,file)">
+                            <div class="thumb" :style="'background-image: url('+getThumbnail(file)+')'" alt=""></div>
                             <h4>{{file.original}}</h4>
                         </div>
                         <div class="backdrop" v-on:click="closeContextMenu($event)">
