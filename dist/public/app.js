@@ -39,6 +39,17 @@ var app = new Vue({
         $("#menu").hide()
         $(".backdrop").removeClass('menu-open');
     },
+    openFileDialog(){
+        $("#my_file").click()
+    },
+    uploadFromHiddenForm(){
+        var files = $("#my_file")[0].files;
+        for (var i in files) {
+            if (files.hasOwnProperty(i)) {
+                this.uploadFile(files[i])
+            }
+        }
+    },
     uploadFile:function(file){
         var form = new FormData();
         form.append('file',file);
