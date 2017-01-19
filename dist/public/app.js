@@ -103,9 +103,6 @@ $.get('/files').then(files=>{
     app.$data.files = files;
 })
 
-function uploadFile(event){
-    console.log(event)
-}
 socket.on('newfile',function(data){
     app.$data.files.push(data)
 })
@@ -116,45 +113,3 @@ socket.on('deleted',function(data){
         return el.id!=data
     })
 })
-
-var isAdvancedUpload = function() {
-  var div = document.createElement('div');
-  return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
-}();
-
-var dropWindow = $('.drop-window');
-
-dropWindow.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  })
-  .on('dragover dragenter', function() {
-    dropWindow.addClass('is-dragover');
-  })
-  .on('dragleave dragend drop', function() {
-    dropWindow.removeClass('is-dragover');
-  })
-  .on('drop', function(e) {
-    droppedFiles = e.originalEvent.dataTransfer.files;
-  });
-
-var plus = new Dropzone(".add-file", { url: "/files"})
-
-
-plus.on('addedfile',addedFile)
-
-function addedFile(file){
-    console.log(file)
-    $.snackbar({
-        content: "File "+file.name+" successfully loaded!",// add a custom class to your snackbar
-        timeout: 3000, // time in milliseconds after the snackbar autohides, 0 is disabled
-    })
-}
-
-function getThumbnail(file){
-    var format = file.original.lastIndexOf('.')+1;
-    if(['jpg','png'].indexOf(format)>-1){
-        return '/file/'+file.id;
-    }
-    return '/pics/'+format+'-file-format.svg'
-}
