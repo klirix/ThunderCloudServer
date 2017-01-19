@@ -34,10 +34,13 @@
                         </div>
                         <div class="backdrop" v-on:click="closeContextMenu($event)">
                         <div id="menu" class="menu" style="display: none;">
-                            <a class="menu-item" v-if="fileContext" :href="'/file/'+fileContext.id" target="_blank" >
+                            <div class="menu-item menu-header">
+                                <b>Choose what to do</b>
+                            </div>
+                            <div class="menu-item" v-if="fileContext" v-on:click="downloadFile($event,fileContext)">
                                 Open
-                            </a>
-                            <div class="menu-item" v-if="fileContext" v-on:click="deleteFile(fileContext)">
+                            </div>
+                            <div class="menu-item" v-if="fileContext" v-on:click="deleteFile(fileContext)" >
                                 Delete
                             </div>
                             <div class="menu-item" v-if="fileContext" :href="'/file/'+fileContext.id+'/download'" target="_blank" >

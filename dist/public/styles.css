@@ -79,19 +79,20 @@ body{
 }
 
 @media only screen and (max-width: 500px) {
-    .file{
-        width: 30%;
+    .files{
+        flex-direction: column;
+        align-items: center;
     }
     .add-file{
         display: block;
     }
+
 }
 
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
+    .metadata-window{
+        display: none;
     }
 }
 
@@ -131,7 +132,24 @@ body{
     display: block;
     padding: 0.7em 3em 0.7em 1em;
 }
-.dz-max-files-reached {
-          pointer-events: none;
-          cursor: default;
+.menu-header{
+    display: none;
+}
+@media only screen and (max-width: 500px) {
+    .backdrop.menu-open{
+        background: rgba(0, 0, 0, 0.3);
+    }
+    .menu{
+        position: fixed;
+        bottom: 0 !important;
+        top: unset !important;
+        left: unset !important;
+        width: 100vw;
+    }
+    .menu-item{
+        padding: 1.5em 3em 1.5em 2em;
+    }
+    .menu-header{
+        display: block;
+    }
 }

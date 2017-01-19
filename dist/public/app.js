@@ -36,11 +36,8 @@ var app = new Vue({
     },
     closeContextMenu: function(e){
         this.contextMenuOpen = false;
-        if(e.target == $(".backdrop")[0] || this.contextMenuOpen){
-            $("#menu").hide()
-            $(".backdrop").removeClass('menu-open');
-        }
-        console.log(e);
+        $("#menu").hide()
+        $(".backdrop").removeClass('menu-open');
     },
     uploadFile:function(file){
         var form = new FormData();
@@ -74,6 +71,7 @@ var app = new Vue({
     },
     downloadFile:function(e,file){
         console.log(e);
+        this.closeContextMenu();
         window.open("/file/"+file.id+"/download", "_blank")
     },
     deleteFile: function(file){
@@ -89,6 +87,7 @@ var app = new Vue({
                 timeout: 3000, // time in milliseconds after the snackbar autohides, 0 is disabled
             })
         })
+        this.closeContextMenu();
     },
     getThumbnail:function(file){
         var format = file.original.substring(file.original.lastIndexOf('.')+1);
@@ -112,4 +111,4 @@ socket.on('deleted',function(data){
     app.$data.files = app.$data.files.filter(function(el){
         return el.id!=data
     })
-})
+})  
