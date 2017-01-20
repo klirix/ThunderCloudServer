@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 var cluster = require('cluster');
 var server = require('./dist/app.js');
+var numWorkers = require('os').cpus().length;
 
 if(cluster.isMaster) {
-    var numWorkers = require('os').cpus().length;
 
     console.log('Master cluster setting up ' + numWorkers + ' workers...');
 
