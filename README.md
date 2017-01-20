@@ -1,5 +1,6 @@
 # ThunderCloudServer
 [![Code Climate](https://codeclimate.com/github/klirix/ThunderCloudServer/badges/gpa.svg)](https://codeclimate.com/github/klirix/ThunderCloudServer)
+
 Just Yet Another Local Cloud Server
 
 Creates files folder and a mapping Sqlite3 database. As easy as that.
